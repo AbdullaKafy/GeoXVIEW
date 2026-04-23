@@ -1,0 +1,23 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build artifacts / local data (not needed in the deployed repo)
+data_v4/
+data_v5/
+photos_v5/
+output/
+output_v*/
+*.pyc
+__pycache__/
+.venv/
+venv/
+
+# Keep only the three HTMLs, README, LICENSE, CITATION.cff

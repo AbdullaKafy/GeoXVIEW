@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GeoXVIEW — Scale-Adaptive Environmental Exposure</title>
+<meta name="description" content="Scale-adaptive environmental exposure index validated across 1,400 Texas field sites. Abdulla Al Kafy, UT Austin.">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:#1B3A2D; --cream:#F4EFE6; --gold:#E8B741;
+    --coral:#C2533A; --ink:#2B2B2B; --gray:#6B7B6E; --white:#FFFFFF;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; font-family:'Inter',sans-serif; color:var(--ink); }
+  body {
+    background:
+      linear-gradient(135deg, rgba(27,58,45,0.92) 0%, rgba(27,58,45,0.78) 100%),
+      url("https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=2000&q=80") center/cover;
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:40px 20px;
+    color:var(--white);
+  }
+  .wrap { max-width:860px; width:100%; }
+  .brand {
+    font-family:'Lora',serif; font-size:32px; font-weight:700;
+    color:var(--gold); letter-spacing:.5px; margin-bottom:10px;
+  }
+  .brand .accent { color:var(--white); }
+  h1 {
+    font-family:'Lora',serif; font-size:clamp(36px, 5vw, 58px);
+    font-weight:700; line-height:1.1; margin-bottom:18px;
+    letter-spacing:-1px;
+  }
+  h1 em { color:var(--gold); font-style:italic; font-weight:600; }
+  .subtitle {
+    font-size:18px; color:rgba(255,255,255,.85); line-height:1.5;
+    margin-bottom:40px; max-width:720px;
+  }
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:36px; }
+  .card {
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(232,183,65,.35);
+    border-radius:8px;
+    padding:28px 26px;
+    text-decoration:none; color:inherit;
+    transition:all .2s ease;
+    display:block;
+  }
+  .card:hover {
+    background:rgba(255,255,255,0.12);
+    border-color:var(--gold);
+    transform:translateY(-3px);
+  }
+  .card .tag {
+    color:var(--gold); font-size:10.5px; letter-spacing:2px;
+    font-weight:700; text-transform:uppercase; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .card .tag::before {
+    content:""; width:8px; height:8px; border-radius:50%; background:var(--gold);
+  }
+  .card h2 {
+    font-family:'Lora',serif; font-size:22px; font-weight:600;
+    color:var(--white); margin-bottom:8px;
+  }
+  .card p {
+    font-size:13.5px; color:rgba(255,255,255,.75);
+    line-height:1.55;
+  }
+  .card .arrow {
+    margin-top:16px; color:var(--gold);
+    font-size:13px; font-weight:600;
+  }
+  .byline {
+    border-top:1px solid rgba(232,183,65,.3);
+    padding-top:24px;
+    font-size:13px; color:rgba(255,255,255,.7);
+    line-height:1.7;
+  }
+  .byline b { color:var(--white); font-weight:600; }
+  .byline a { color:var(--gold); text-decoration:none; }
+  .footer-meta {
+    margin-top:22px; font-size:11px;
+    color:rgba(255,255,255,.5); letter-spacing:.5px;
+  }
+  @media (max-width:700px) {
+    .cards { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Geo<span class="accent">XVIEW</span></div>
+  <h1>Can we trust the maps that decide <em>who gets cool air?</em></h1>
+  <p class="subtitle">A scale-adaptive environmental exposure index validated across 1,400 Texas field sites. Two ways to explore — a long-form read or a live interactive map.</p>
+
+  <div class="cards">
+    <a class="card" href="GeoXVIEW_StoryMap.html">
+      <div class="tag">Start here</div>
+      <h2>The Story</h2>
+      <p>Scrollytelling long-form. The problem, the field campaign, the framework, and the spotlights — with the interactive dashboard embedded in context.</p>
+      <div class="arrow">Read the story ↗</div>
+    </a>
+    <a class="card" href="GeoXVIEW_Dashboard.html">
+      <div class="tag">Explore</div>
+      <h2>The Dashboard</h2>
+      <p>Live interactive map. Search by city, county, or site name. Select any field site for 40+ variables. Select any polygon for its cross-scale classification. Switch between five boundary scales.</p>
+      <div class="arrow">Open the dashboard ↗</div>
+    </a>
+  </div>
+
+  <div class="byline">
+    <b>Abdulla Al Kafy</b> — PhD Student<br>
+    Digital Landscapes Laboratory · Geography & the Environment<br>
+    The University of Texas at Austin · <a href="mailto:abdullaalkafy@utexas.edu">abdullaalkafy@utexas.edu</a><br>
+    PhD Supervisor: <b>Kelley A. Crews</b>
+  </div>
+  <div class="footer-meta">
+    May 2026 · Built with Leaflet, CartoDB, Esri · Data: Texas Data Repository (pending release)
+  </div>
+</div>
+</body>
+</html>

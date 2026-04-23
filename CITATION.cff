@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "GeoXVIEW — Geospatially eXplicit Vertically Integrated Exposure Workflow"
+message: "If you use this framework, dataset, or visualization, please cite as below."
+type: software
+authors:
+  - given-names: Abdulla
+    family-names: Al Kafy
+    email: abdullaalkafy@utexas.edu
+    affiliation: "Digital Landscapes Laboratory, Department of Geography & the Environment, The University of Texas at Austin"
+repository-code: "https://github.com/YOUR-USERNAME/geoxview"
+url: "https://YOUR-USERNAME.github.io/geoxview/"
+abstract: >-
+  GeoXVIEW is a scale-adaptive environmental exposure modeling framework validated
+  across 1,400 seasonally stratified field sites in Texas (2023–2026). The framework
+  integrates satellite imagery, ground instrumentation, street-view semantic segmentation,
+  and resident-reported experience across five administrative aggregation levels. The
+  resulting Environmental Exposure Modeling Index (EEMI) carries an explicit
+  boundary-variance term (sigma_MAUP).
+keywords:
+  - "environmental exposure"
+  - "remote sensing"
+  - "urban heat"
+  - "Modifiable Areal Unit Problem"
+  - "MAUP"
+  - "geographic information systems"
+  - "Texas"
+  - "scale-adaptive modeling"
+  - "spatial epidemiology"
+license: MIT
+date-released: "2026-05-01"
