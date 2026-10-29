@@ -33,7 +33,7 @@ data/          Site table, seasonal readings, unit-level EEI for 5 scales (see d
 src/geoxview/  Python package: EEI, MAUP diagnostics, spatial block cross-validation
 notebooks/     01_quickstart.ipynb runs every analysis below in about one minute
 figures/       Figures made by the notebook
-docs/          Dashboard and story map (served by GitHub Pages)
+index.html, GeoXVIEW_Dashboard.html, GeoXVIEW_StoryMap.html   Live site (GitHub Pages)
 tests/         Tests check that the package reproduces the published dashboard values
 ```
 
