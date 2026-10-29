@@ -2,180 +2,87 @@
 
 **Geospatially eXplicit Vertically Integrated Exposure Workflow**
 
-A scale-adaptive environmental exposure modeling framework validated across 1,400 seasonally stratified field sites in Texas (2023–2026), showing how administrative scale alters environmental exposure estimates and how to address this.
+[![tests](https://github.com/AbdullaKafy/GeoXVIEW/actions/workflows/ci.yml/badge.svg)](https://github.com/AbdullaKafy/GeoXVIEW/actions/workflows/ci.yml)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AbdullaKafy/GeoXVIEW/blob/main/notebooks/01_quickstart.ipynb)
+[![Archive DOI](https://img.shields.io/badge/DOI-10.26153%2Ftsw%2F64936-blue)](https://doi.org/10.26153/tsw/64936)
+[![License: MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey)](data/README.md)
 
-**Author:** Abdulla Al Kafy — PhD Student, Digital Landscapes Laboratory, Department of Geography & the Environment, The University of Texas at Austin · abdullaalkafy@utexas.edu
+**Live dashboard:** https://abdullakafy.github.io/GeoXVIEW/
 
-**PhD Supervisor:** Kelley A. Crews
+Environmental exposure maps decide where cooling centers, tree planting and air-quality programs go. But the same place can look low-risk on a county map and high-risk on a tract map. GeoXVIEW measures exposure on the ground across Texas, combines it into one index, and reports how much that index depends on the map unit used to show it.
 
-**Live site (after deployment):** `https://YOUR-USERNAME.github.io/geoxview/`
+![GeoXVIEW field sites by EEI class](figures/fig1_sites_eei.png)
 
----
+## Key numbers
 
-## Repository contents
+| | |
+|---|---|
+| Field sites | 1,400 across all 254 Texas counties, 15 land cover classes, 12 EPA Level III ecoregions, 5 Köppen climate zones |
+| Field program | 13 seasonal campaigns (2023 to 2026), 250,000+ calibrated readings, timed to MODIS Aqua overpass |
+| Map units compared | County, county subdivision, ZIP code, census tract, block group (28,642 polygons) |
+| Scale effect | 114 of 1,393 sites (8.2%) change exposure class depending on the map unit; county maps disagree with finer units for 6 to 7% of sites |
+| Validation lesson | For the same model, random cross-validation gives R² 0.85, spatial block cross-validation gives R² 0.53 |
 
-| File | Description |
-|------|-------------|
-| `index.html` | Landing page — two cards linking to the Story and the Dashboard. |
-| `GeoXVIEW_StoryMap.html` | Long-form scrollytelling page: Problem, Methods, Explore (embedded dashboard), Spotlights. |
-| `GeoXVIEW_Dashboard.html` | Live interactive map. Five boundary scales; every Texas polygon rendered (measured or stratum-matched spatial proxy). Client-side search bar for city / county / ZIP / site name. |
-| `README.md` | This file. |
-| `LICENSE` | MIT License. |
-| `CITATION.cff` | Academic citation metadata. |
-| `.gitignore` | Excludes build artifacts and local data. |
+Dissertation result (model and data not in this repo): tract-level land surface temperature, XGBoost under spatial blocking, R² 0.896, RMSE 2.65°F.
 
-All three HTML files are self-contained — GeoJSON data, images, and CSS are embedded inline. No server, database, or build step required.
+## What is in this repo
 
----
-
-## Deploy to GitHub Pages — step-by-step
-
-This takes about 5 minutes from a new repository to a live public URL.
-
-### Option 1 — Deploy as a project site (recommended)
-
-The site will live at `https://YOUR-USERNAME.github.io/geoxview/`. Your main GitHub profile page (if you have one) remains untouched.
-
-#### 1. Create a new public repository
-
-1. Sign in to GitHub and go to https://github.com/new
-2. **Repository name:** `geoxview` (or any name you prefer — the name becomes the URL path)
-3. **Description:** `GeoXVIEW — Scale-adaptive environmental exposure modeling for Texas`
-4. **Public** (required for free GitHub Pages)
-5. Check **Add a README file** (you'll replace it in the next step)
-6. Click **Create repository**
-
-#### 2. Upload the four files from this folder
-
-On the new repo's main page:
-
-1. Click **Add file → Upload files** (top right of the file list)
-2. Drag and drop, from this folder on your computer:
-   - `index.html`
-   - `GeoXVIEW_StoryMap.html`
-   - `GeoXVIEW_Dashboard.html`
-   - `README.md` *(this one replaces the auto-generated README)*
-   - `LICENSE`
-   - `CITATION.cff`
-   - `.gitignore`
-3. Scroll down, add a commit message (e.g., `Initial GeoXVIEW release`)
-4. Click **Commit changes**
-
-> **Note on file size.** `GeoXVIEW_Dashboard.html` is ~40 MB, well under GitHub's 100 MB per-file cap. GitHub's web-upload interface handles it without issue. First-visit load on the deployed site takes 5–10 seconds while the browser parses the embedded GeoJSON; subsequent interactions are instant.
-
-#### 3. Enable GitHub Pages
-
-1. In the repo, click **Settings** (top menu)
-2. In the left sidebar, click **Pages**
-3. Under **Build and deployment → Source**, select **Deploy from a branch**
-4. Under **Branch**, choose `main` and folder `/ (root)`
-5. Click **Save**
-
-Wait 30–60 seconds. A green banner appears at the top of the Pages settings screen:
-
-> **Your site is live at https://YOUR-USERNAME.github.io/geoxview/**
-
-Open that URL. You should see the landing page with two cards.
-
----
-
-### Option 2 — Deploy as your personal profile site
-
-If you want GeoXVIEW to be your **main GitHub profile page** (i.e., hosted at `https://YOUR-USERNAME.github.io/`), name the repository `YOUR-USERNAME.github.io` instead of `geoxview`. Everything else in the steps above is identical.
-
-> ⚠️ Use this only if you're fine with GeoXVIEW being the default landing for your whole GitHub profile. Most people prefer Option 1 (project site) so the main profile URL stays free for a general personal page.
-
----
-
-### Option 3 — Custom domain (optional)
-
-If you own a domain (e.g., `geoxview.abdullaalkafy.com`):
-
-1. In the repo, go to **Settings → Pages → Custom domain**
-2. Enter your domain and click **Save**
-3. GitHub will prompt you to add DNS records at your domain registrar:
-   - For an apex domain (`example.com`): four A records pointing to GitHub's IPs (shown in the Pages settings)
-   - For a subdomain (`geoxview.example.com`): a CNAME record pointing to `YOUR-USERNAME.github.io`
-4. After DNS propagates (up to 24 hours), check **Enforce HTTPS** in the Pages settings
-
----
-
-## Updating the site
-
-When you regenerate the HTMLs (new field data, revised narrative, additional photos):
-
-1. Go to the repo's main page
-2. Click the file you want to replace → click the pencil icon (edit) → **Replace file** (or drag a new file into **Add file → Upload files**)
-3. Commit the change
-4. Wait ~60 seconds; GitHub Pages rebuilds automatically
-
-No command-line git required.
-
----
-
-## Using git from the command line (optional, for frequent updates)
-
-If you prefer the terminal:
-
-```bash
-# One-time clone
-git clone https://github.com/YOUR-USERNAME/geoxview.git
-cd geoxview
-
-# After editing files locally
-git add .
-git commit -m "Update dashboard data"
-git push
+```
+data/          Site table, seasonal readings, unit-level EEI for 5 scales (see data/README.md)
+src/geoxview/  Python package: EEI, MAUP diagnostics, spatial block cross-validation
+notebooks/     01_quickstart.ipynb runs every analysis below in about one minute
+figures/       Figures made by the notebook
+docs/          Dashboard and story map (served by GitHub Pages)
+tests/         Tests check that the package reproduces the published dashboard values
 ```
 
-Pages rebuilds within a minute of each push.
+## Quickstart
 
----
+```bash
+git clone https://github.com/AbdullaKafy/GeoXVIEW.git
+cd GeoXVIEW
+pip install -e ".[geo]"
+```
 
-## How the code is structured
+```python
+import geoxview as gx
 
-All three HTML files are **static pages** — pure HTML + embedded CSS + embedded JavaScript.
+sites = gx.load_sites()                     # 1,400 field sites
+eei = gx.compute_eei(sites)                 # rebuild the index from its 3 components
+spread = gx.scale_spread(gx.load_site_scales())
+print(spread.class_changes.sum(), "sites change class with the map unit")
+```
 
-- **Dashboard.** Built with [Leaflet 1.9.4](https://leafletjs.com/) for interactive mapping, Esri World Imagery / CartoDB for basemaps, and embedded GeoJSON for all five polygon scales. No external API calls at runtime except tile fetches. The client-side search bar indexes site names, counties, ZIP codes, and subdivisions for instant lookup.
-- **StoryMap.** Single-column scrollytelling page. Pure HTML/CSS, no framework. Images are embedded as base64 data URIs so the file is portable.
-- **Landing page.** Minimal HTML with two cards linking to the Story and the Dashboard.
+## Method in brief
 
-There is no build step. To regenerate from source data, the Python scripts under `scripts/` (not included in this public repo — maintained separately) perform the pipeline: reprojection → spatial-join → stratum-matched IDW → GeoJSON export → HTML template substitution.
+**1. One index, three visible parts.** The Environmental Exposure Index (EEI) is the equal-weight mean of normalized air quality, land surface temperature and land cover scores (0 to 100). Each part stays in the data, so a high score in one part is never hidden by a low score in another. `gx.weight_sensitivity()` tests the weights: across 500 random weight sets near equal weights, site rankings keep a median Spearman correlation of 0.96, while a median 11.7% of sites change class.
 
----
+**2. Same site, five map units.** Each site is placed in its county, subdivision, ZIP code, tract and block group, and each unit reports its own mean EEI. `gx.scale_spread()` and `gx.class_agreement()` show where the answer depends on the boundary.
 
-## Data sources
+![Scale effect](figures/fig2_maup.png)
 
-- **Boundary polygons:** U.S. Census Bureau TIGER/Line 2020 (counties, county subdivisions, ZCTAs, tracts, block groups)
-- **Ecoregions:** U.S. EPA Level-III Ecoregions
-- **Köppen zones:** Beck et al., 2018
-- **Satellite products:** Landsat 8/9, Sentinel-2, MODIS
-- **Field data:** 22,400 records collected 2023–2026 across 1,400 stratified sites in 254 Texas counties; 121 unique environmental strata (NLCD × Ecoregion × Köppen)
+**3. Honest validation.** Nearby sites are similar, so random folds leak information. `gx.spatial_block_cv()` holds out whole 100 km blocks.
 
-## Data and code release
+![Random vs spatial cross-validation](figures/fig3_cv.png)
 
-- **Dataset:** Texas Data Repository + Zenodo (pending)
-- **Source code:** GitHub (this repository is the public front-end; analysis scripts pending)
+The cross-validation example predicts site mean air temperature from land cover and street-view features. It demonstrates the validation method on the released data; it is not the dissertation's tract-level model.
 
-## Citation
+## Data and privacy
 
-If you use this framework, dataset, or visualization, please cite:
+The released data are site-level summaries already shown in the public dashboard. Raw instrument logs, photos and resident survey responses are not included. Survey data are covered by a UT Austin IRB protocol and are reported only in aggregate in publications. Site names and locations are the same as in the public dashboard.
 
-> Al Kafy, A. (2026). *GeoXVIEW — Geospatially eXplicit Vertically Integrated Exposure Workflow.* The University of Texas at Austin. https://YOUR-USERNAME.github.io/geoxview/
+## Cite
 
-(See `CITATION.cff` for a machine-readable version.)
+Use the "Cite this repository" button (from `CITATION.cff`), or:
 
-## Acknowledgments
+Al Kafy, A. (2026). *GeoXVIEW: Geospatially eXplicit Vertically Integrated Exposure Workflow for Scale Adaptive Environmental Exposure Modeling*. Texas ScholarWorks. https://doi.org/10.26153/tsw/64936
 
-- **Scholars Lab Fellowship** — UT Libraries
-- **Robert E. Veselka Memorial Fellowship**
-- Kelley A. Crews (PhD Supervisor)
-- Alex Marden (GIS & Geospatial Data Coordinator, UT Libraries)
+Related talk: Al Kafy, A. GeoXVIEW: A Spatially Explicit Scale Adaptive Framework for Field Validated and Bias Corrected Environmental Exposure Modeling. AGU Fall Meeting 2026, oral presentation, session SY51B-03.
 
-## License
+## Author
 
-MIT. See `LICENSE`.
+Abdulla Al Kafy, Department of Geography and the Environment, The University of Texas at Austin. Advisor: Kelley A. Crews.
+[Website](https://abdullaalkafy.com) | [Google Scholar](https://scholar.google.com/citations?user=vkBgMkIAAAAJ) | [ORCID](https://orcid.org/0000-0002-7544-5165)
 
-## Contact
-
-**Abdulla Al Kafy** · abdullaalkafy@utexas.edu
+Support: Harry E. and Bernice M. Moore Fellowship (Hogg Foundation for Mental Health), the UT Austin Libraries Scholars Lab Fellowship, and a Geological Society of America Graduate Student Research Grant.

@@ -1,30 +1,33 @@
 cff-version: 1.2.0
-title: "GeoXVIEW — Geospatially eXplicit Vertically Integrated Exposure Workflow"
-message: "If you use this framework, dataset, or visualization, please cite as below."
+title: "GeoXVIEW: Geospatially eXplicit Vertically Integrated Exposure Workflow"
+message: "If you use this software, data or dashboard, please cite it as below."
 type: software
 authors:
   - given-names: Abdulla
     family-names: Al Kafy
     email: abdullaalkafy@utexas.edu
-    affiliation: "Digital Landscapes Laboratory, Department of Geography & the Environment, The University of Texas at Austin"
-repository-code: "https://github.com/YOUR-USERNAME/geoxview"
-url: "https://YOUR-USERNAME.github.io/geoxview/"
+    affiliation: "Department of Geography and the Environment, The University of Texas at Austin"
+    orcid: "https://orcid.org/0000-0002-7544-5165"
+repository-code: "https://github.com/AbdullaKafy/GeoXVIEW"
+url: "https://abdullakafy.github.io/GeoXVIEW/"
+identifiers:
+  - type: doi
+    value: 10.26153/tsw/64936
+    description: "Texas ScholarWorks archive"
 abstract: >-
-  GeoXVIEW is a scale-adaptive environmental exposure modeling framework validated
-  across 1,400 seasonally stratified field sites in Texas (2023–2026). The framework
-  integrates satellite imagery, ground instrumentation, street-view semantic segmentation,
-  and resident-reported experience across five administrative aggregation levels. The
-  resulting Environmental Exposure Modeling Index (EEMI) carries an explicit
-  boundary-variance term (sigma_MAUP).
+  GeoXVIEW is a scale-adaptive environmental exposure framework built on 1,400
+  field sites across all 254 Texas counties (2023 to 2026). It combines air quality,
+  land surface temperature and land cover into an Environmental Exposure Index (EEI),
+  reports each component separately, and measures how the index changes across five
+  map units (county, county subdivision, ZIP code, census tract, block group).
 keywords:
-  - "environmental exposure"
-  - "remote sensing"
-  - "urban heat"
-  - "Modifiable Areal Unit Problem"
-  - "MAUP"
-  - "geographic information systems"
-  - "Texas"
-  - "scale-adaptive modeling"
-  - "spatial epidemiology"
+  - geoai
+  - environmental exposure
+  - urban heat
+  - modifiable areal unit problem
+  - spatial cross-validation
+  - remote sensing
+  - Texas
 license: MIT
+version: 0.1.0
 date-released: "2026-05-01"

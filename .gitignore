@@ -1,23 +1,33 @@
-# System files
+# System and editor files
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# Editor
 .vscode/
 .idea/
 *.swp
 *~
 
-# Build artifacts / local data (not needed in the deployed repo)
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Secrets: never commit keys or credentials
+.env
+*.pem
+*service-account*.json
+*credentials*.json
+.config/earthengine/
+
+# Raw and working data (not released)
 data_v4/
 data_v5/
 photos_v5/
 output/
 output_v*/
-*.pyc
-__pycache__/
-.venv/
-venv/
-
-# Keep only the three HTMLs, README, LICENSE, CITATION.cff
+raw/
